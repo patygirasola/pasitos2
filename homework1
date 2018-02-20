@@ -1,0 +1,37 @@
+function setup(){
+    createCanvas(800, 800);
+    background(100, 200, 10);
+}
+
+function draw(){
+    background(34,139,34); //grass
+    //clonePato(70, 399, 740, 100); //pato
+    //PatoPond(750); //water
+    if (mouseIsPressed){
+        clonePato(70, mouseX, mouseY, 100)
+        patoPond(mouseY);
+    }
+    if (!mouseIsPressed){
+        clonePato(70, 399, 740, 100); //pato
+        patoPond(750); //water
+    }
+    
+}
+
+function patoPond(water_level_y){
+    //create pond of variable water level
+    fill(173,216,230);
+    rect(0, water_level_y, 800, 800-water_level_y);
+}
+
+function clonePato(head_size, pato_location_x, pato_location_y,pato_color_R) {
+    //create duck of variable head size
+    fill(pato_color_R,pato_color_R+130,110);
+    ellipse(pato_location_x, pato_location_y, 150, 80);
+    ellipse(pato_location_x-49, pato_location_y-55, head_size)
+    fill(100, 200, 55)
+    ellipse(pato_location_x-89, pato_location_y-55, 40, 20)
+    ellipse(pato_location_x-54, pato_location_y-65, 5)
+    triangle(pato_location_x-49, pato_location_y+45, pato_location_x-9, pato_location_y+35, pato_location_x+1, pato_location_y+45)
+    triangle(pato_location_x-29, pato_location_y+45, pato_location_x-9, pato_location_y+35, pato_location_x+1, pato_location_y+45) 
+}
